@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon.com. Spend less. Smile more.</title>
+  <meta name="description" content="Shop online for Electronics, Computers, Clothing, Shoes, Books, Home & Kitchen, and more with fast, free delivery on Prime items.">
+  
+  <!-- Google Fonts: Inter & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  
+  <!-- Custom Vanilla CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TOP MAIN HEADER ================= -->
+  <header class="amz-header" id="topHeader">
+    <!-- Top Utility Bar -->
+    <div class="amz-topbar">
+      <!-- Left: Logo & Deliver Location -->
+      <div class="amz-brand-zone">
+        <!-- Logo -->
+        <a href="#" class="amz-logo-link" aria-label="Amazon Home" id="logoHomeBtn">
+          <div class="amz-logo-wrap">
+            <span class="amz-logo-text">amazon</span>
+            <span class="amz-logo-prime-dot">.prime</span>
+            <svg class="amz-smile-svg" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 14C24 23 76 25 96 6" stroke="#ff9900" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M88 4L97 6L94 15" stroke="#ff9900" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Deliver To -->
+        <button class="amz-nav-location" id="locationBtn" aria-label="Choose delivery location">
+          <span class="material-symbols-outlined amz-loc-icon">location_on</span>
+          <div class="amz-nav-text">
+            <span class="amz-line-1" id="deliverToUser">Deliver to Alex</span>
+            <span class="amz-line-2 font-bold" id="deliverToCity">Seattle 98101</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Center: Search Bar with Category Select & Autocomplete -->
+      <div class="amz-search-zone">
+        <form class="amz-search-form" id="searchForm" role="search">
+          <!-- Department Select -->
+          <div class="amz-search-cat">
+            <select id="searchCategorySelect" aria-label="Select Category to Search">
+              <option value="all">All Departments</option>
+              <option value="electronics">Electronics</option>
+              <option value="audio">Audio & Headphones</option>
+              <option value="home">Home & Kitchen</option>
+              <option value="books">Books & Media</option>
+              <option value="wearables">Wearables & Tech</option>
+            </select>
+            <span class="material-symbols-outlined amz-cat-arrow">arrow_drop_down</span>
+          </div>
+
+          <!-- Search Input -->
+          <div class="amz-search-input-wrap">
+            <input 
+              type="text" 
+              id="searchInput" 
+              class="amz-search-input" 
+              placeholder="Search Amazon (e.g. headphones, 4K monitor, kettle, watch...)" 
+              autocomplete="off"
+              aria-label="Search Amazon products"
+            >
+            <button type="button" class="amz-search-clear" id="searchClearBtn" aria-label="Clear search input">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <!-- Search Submit Button -->
+          <button type="submit" class="amz-search-submit" aria-label="Submit search">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </form>
+
+        <!-- Search Autocomplete Suggestions Dropdown -->
+        <div class="amz-search-suggestions" id="searchSuggestions" style="display: none;">
+          <!-- Dynamically populated suggestions -->
+        </div>
+      </div>
+
+      <!-- Right: Language, Accounts, Orders, Cart -->
+      <div class="amz-user-zone">
+        <!-- Language selector -->
+        <button class="amz-nav-item amz-lang-btn" id="langSelectorBtn" aria-label="Change language">
+          <span class="amz-flag">🇺🇸</span>
+          <span class="amz-line-2 font-bold">EN</span>
+          <span class="material-symbols-outlined amz-arrow-tiny">arrow_drop_down</span>
+        </button>
+
+        <!-- Account & Lists -->
+        <div class="amz-nav-item amz-account-btn" id="accountMenuBtn">
+          <span class="amz-line-1">Hello, Alex</span>
+          <div class="amz-line-2-wrap">
+            <span class="amz-line-2 font-bold">Account &amp; Lists</span>
+            <span class="material-symbols-outlined amz-arrow-tiny">arrow_drop_down</span>
+          </div>
+          <!-- Account Dropdown Menu -->
+          <div class="amz-account-dropdown" id="accountDropdown">
+            <div class="amz-dropdown-user">
+              <div class="amz-user-avatar">A</div>
+              <div>
+                <strong>Alex Vance</strong>
+                <p>Prime Member since 2019</p>
+              </div>
+            </div>
+            <div class="amz-dropdown-grid">
+              <div class="amz-dropdown-col">
+                <h4>Your Lists</h4>
+                <a href="#wishlist" class="amz-dropdown-link">Shopping List</a>
+                <a href="#wishlist" class="amz-dropdown-link">Saved for Later</a>
+                <a href="#wishlist" class="amz-dropdown-link">Baby &amp; Wedding Registry</a>
+              </div>
+              <div class="amz-dropdown-col">
+                <h4>Your Account</h4>
+                <a href="#orders" class="amz-dropdown-link" id="dropdownOrdersLink">Your Orders</a>
+                <a href="#prime" class="amz-dropdown-link">Your Prime Membership</a>
+                <a href="#settings" class="amz-dropdown-link">Addresses &amp; Payment</a>
+                <a href="#returns" class="amz-dropdown-link">Returns &amp; Replacements</a>
+                <hr class="amz-dropdown-divider">
+                <a href="#signout" class="amz-dropdown-link text-red">Sign Out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Returns & Orders -->
+        <button class="amz-nav-item amz-orders-btn" id="ordersNavBtn" aria-label="View Orders">
+          <span class="amz-line-1">Returns</span>
+          <span class="amz-line-2 font-bold">&amp; Orders</span>
+        </button>
+
+        <!-- Cart with Dynamic Badge -->
+        <button class="amz-nav-item amz-cart-btn" id="cartNavBtn" aria-label="Open Shopping Cart">
+          <div class="amz-cart-icon-wrap">
+            <span class="material-symbols-outlined amz-cart-icon">shopping_cart</span>
+            <span class="amz-cart-count" id="cartCountBadge">0</span>
+          </div>
+          <span class="amz-line-2 font-bold amz-cart-label">Cart</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Secondary Sub-Navigation Bar -->
+    <nav class="amz-subnav" aria-label="Department Categories">
+      <div class="amz-subnav-left">
+        <!-- Hamburger Menu Button -->
+        <button class="amz-subnav-all" id="openSideMenuBtn" aria-label="Open All Departments Menu">
+          <span class="material-symbols-outlined">menu</span>
+          <span>All</span>
+        </button>
+
+        <!-- Category Links -->
+        <div class="amz-subnav-links" id="subnavLinks">
+          <button class="amz-subnav-link active" data-category="all">Today's Deals</button>
+          <button class="amz-subnav-link" data-category="electronics">Electronics</button>
+          <button class="amz-subnav-link" data-category="audio">Audio &amp; Sound</button>
+          <button class="amz-subnav-link" data-category="wearables">Smart Tech</button>
+          <button class="amz-subnav-link" data-category="home">Home &amp; Kitchen</button>
+          <button class="amz-subnav-link" data-category="books">Books</button>
+          <button class="amz-subnav-link" data-category="registry">Registry</button>
+          <button class="amz-subnav-link" data-category="gift-cards">Gift Cards</button>
+          <button class="amz-subnav-link" data-category="sell">Sell on Amazon</button>
+        </div>
+      </div>
+
+      <div class="amz-subnav-right">
+        <a href="#lightningDealsSection" class="amz-prime-deal-link">
+          <span class="material-symbols-outlined amz-bolt">bolt</span>
+          <span>Prime Big Deal Days — Limited Hours</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="amz-main-content">
+
+    <!-- HERO CAROUSEL BANNER SECTION -->
+    <section class="amz-hero-carousel" id="heroCarousel" aria-label="Prime Promotions Banner">
+      <!-- Ambient Backdrops -->
+      <div class="amz-hero-ambient ambient-1"></div>
+      <div class="amz-hero-ambient ambient-2"></div>
+
+      <!-- Slides Container -->
+      <div class="amz-hero-slides" id="heroSlidesTrack">
+        <!-- Slide 1: Prime Big Deal Days -->
+        <div class="amz-hero-slide active" data-slide="0" style="background-image: linear-gradient(to right, rgba(0, 30, 44, 0.95) 0%, rgba(22, 28, 36, 0.8) 50%, rgba(22, 28, 36, 0.2) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVK_wzGOVm-vVboto1oh-ooZEXiO1RDVPYkB6RC4O5HJv478HpBU0i0OtVGrx1dwr5THYQ1LIFotssqXdeRHoH-jPuH-Y4DjZDidlqom60oBtuM-iOQv1Lnq7usamkLRZK60tQvbT6MkXDNeve52vQW5WDQ2iBNIHuAGQkaWojbJhrDnCDKY7Y3O-fgGQzww2QUEKYnGEWPD2KRcPjlHQj12J5wS6dD8vN9cybXf71jvCghLZEPdLg');">
+          <div class="amz-hero-inner">
+            <div class="amz-hero-badge-group">
+              <span class="amz-pill-badge amz-pill-prime">
+                <span class="material-symbols-outlined font-fill">bolt</span>
+                <span>Prime Big Deal Days</span>
+              </span>
+              <div class="amz-countdown-pill">
+                <span class="material-symbols-outlined">timer</span>
+                <span>Ends in: <strong id="heroCountdownTimer">14h 32m 45s</strong></span>
+              </div>
+            </div>
+            <h1 class="amz-hero-title">Save up to 50% on Smart Tech, Home &amp; Audio</h1>
+            <p class="amz-hero-desc">
+              Exclusive early-access lightning pricing curated for you. Fast, complimentary two-day priority dispatch with your Prime membership.
+            </p>
+            <div class="amz-hero-cta-group">
+              <a href="#lightningDealsSection" class="amz-btn amz-btn-primary">Explore All Deals</a>
+              <button class="amz-btn amz-btn-glass" id="heroPrimePerksBtn">
+                <span>Membership Perks</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Next-Gen Computing & Workspaces -->
+        <div class="amz-hero-slide" data-slide="1" style="background-image: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.75) 50%, rgba(15, 23, 42, 0.2) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkg5oe5ENP0x_Q0uTY3e3TToJyzJwJ6PDMJcdTCPiWFqaDZkewAoX4JupCYzABO59wfQOHhEx-nh36onYE4dTgb-S5h6TBi2Y-RBsaCxYcUyBJbDAdBHuZs62dLAWApKWVYVZ62LcObarXtI0viZvyQ2VoS7-WANPB878maHBvU3pJ7SH1rgy-QRKxm_Vu9OlUlWT4aqEVwm44ZCOJmfl3yaXxKAcDtWN_d0rSwUcNdhAjheb0vYIh');">
+          <div class="amz-hero-inner">
+            <div class="amz-hero-badge-group">
+              <span class="amz-pill-badge amz-pill-amber">
+                <span class="material-symbols-outlined">laptop_mac</span>
+                <span>Creator &amp; Pro Computing</span>
+              </span>
+              <span class="amz-pill-badge amz-pill-glass">Up to $350 off 4K Displays</span>
+            </div>
+            <h2 class="amz-hero-title">Build Your Ultimate Dream Workspace</h2>
+            <p class="amz-hero-desc">
+              From color-accurate HDR monitors to whisper-quiet mechanical keyboards and high-speed GaN charging docks.
+            </p>
+            <div class="amz-hero-cta-group">
+              <button class="amz-btn amz-btn-primary" onclick="filterByCategory('electronics')">Shop Computing</button>
+              <button class="amz-btn amz-btn-glass" onclick="filterByCategory('wearables')">Ergonomic Gear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Artisanal Living & Culinary -->
+        <div class="amz-hero-slide" data-slide="2" style="background-image: linear-gradient(to right, rgba(38, 28, 20, 0.95) 0%, rgba(67, 48, 33, 0.75) 50%, rgba(38, 28, 20, 0.2) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuArPvYGeBH7vuY2CkqRqJ_nwwV_dtaLwu4XMyZkAwqFOz0dLnbJpDhbq68C4xijStCY-dByjA7WJ_smyyeSPH-970uFy6H066g3l767Xn7R6jFzI3ILmDzbUyOFkU1P5pcCdJcIU6wbTTNGignTteza7r_fgTvoa7gm5bKBQh2xYQ9ADi29IY-d0HCZ5Ck51vB-GrOXjgRpwvdU0lSgcmJsnwLWFdUJ7coZ8OQlRXGBrQWXzJ_IpWEZ');">
+          <div class="amz-hero-inner">
+            <div class="amz-hero-badge-group">
+              <span class="amz-pill-badge amz-pill-green">
+                <span class="material-symbols-outlined">coffee_maker</span>
+                <span>Curated Culinary Collection</span>
+              </span>
+              <span class="amz-pill-badge amz-pill-glass">Scandinavian Aesthetics</span>
+            </div>
+            <h2 class="amz-hero-title">Elevate Your Home with Mindful Design</h2>
+            <p class="amz-hero-desc">
+              Discover precision pour-over electric kettles, tactile ceramics, stone aroma diffusers, and organic linen throws.
+            </p>
+            <div class="amz-hero-cta-group">
+              <button class="amz-btn amz-btn-primary" onclick="filterByCategory('home')">Explore Home &amp; Kitchen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Carousel Controls -->
+      <button class="amz-hero-nav prev" id="heroPrevBtn" aria-label="Previous Slide">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <button class="amz-hero-nav next" id="heroNextBtn" aria-label="Next Slide">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+
+      <!-- Carousel Indicators -->
+      <div class="amz-hero-dots" id="heroDots">
+        <button class="amz-dot active" data-index="0" aria-label="Slide 1"></button>
+        <button class="amz-dot" data-index="1" aria-label="Slide 2"></button>
+        <button class="amz-dot" data-index="2" aria-label="Slide 3"></button>
+      </div>
+
+      <!-- Bottom Gradient Scrim to Blend Into Quadrant Cards -->
+      <div class="amz-hero-scrim"></div>
+    </section>
+
+    <!-- ================= OVERLAPPING QUADRANT CARDS ================= -->
+    <section class="amz-quadrant-container" id="quadrantCards">
+      <div class="amz-quadrant-grid">
+        
+        <!-- Card 1: Continue Shopping (2x2 Grid) -->
+        <article class="amz-card amz-quadrant-card">
+          <div class="amz-card-header">
+            <h2 class="amz-card-title">Continue shopping</h2>
+            <span class="material-symbols-outlined amz-icon-muted">history</span>
+          </div>
+          <div class="amz-mini-grid">
+            <div class="amz-mini-item" onclick="openQuickView(1)">
+              <div class="amz-mini-thumb">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8hxZV5KL8CesKMU8Ra4Bm2fe7B8Jm6EufzsSjOQA7v17QogOVqwVrzAzipF3mRqalgmSBFn3wEtZKKYuEOKDmoafOpqVQQzao5DjMp-k2BCIV0emrnIpX182zryBVGmBfWKpK6so3gpEF57PVf8F3M9dT8QsZzoDJ-vE3gPKlFb_cKqVr-m3lPDZYSLjubqwJkzmpE_ZThVxLhhV93M8duYs23LkwJkYpDhKYtQoeaaqHe45Rmaqg" alt="ANC Headphones" loading="lazy">
+              </div>
+              <span class="amz-mini-label">ANC Headphones</span>
+              <span class="amz-mini-price">$249.00</span>
+            </div>
+            <div class="amz-mini-item" onclick="openQuickView(2)">
+              <div class="amz-mini-thumb">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB46PEGYvXoOfFK2qvueyJ0GKtCUV3d_pdC8Nzgc1pdwXsgVsLUozBosZOTih80B1kotnaP2L4wfuGPb1uraLUBp_ld1aMO0GRpIGS6gR7-KUgkjzS_0fshKhOuxinlVyKdMHKmbfnBV7Jn7ndKjEeOFwMYjKJ9zo9La63r8NbDhwUh8TZ0q2EnkokXrs2nZ_sGdkQV8cpvN_6jNasWkiaACoa9u38AOM2qmj2isy_hZOvIWnDXBHQ4" alt="Mechanical Keyboard" loading="lazy">
+              </div>
+              <span class="amz-mini-label">Ergo Mech Keyboard</span>
+              <span class="amz-mini-price">$129.50</span>
+            </div>
+            <div class="amz-mini-item" onclick="openQuickView(3)">
+              <div class="amz-mini-thumb">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkg5oe5ENP0x_Q0uTY3e3TToJyzJwJ6PDMJcdTCPiWFqaDZkewAoX4JupCYzABO59wfQOHhEx-nh36onYE4dTgb-S5h6TBi2Y-RBsaCxYcUyBJbDAdBHuZs62dLAWApKWVYVZ62LcObarXtI0viZvyQ2VoS7-WANPB878maHBvU3pJ7SH1rgy-QRKxm_Vu9OlUlWT4aqEVwm44ZCOJmfl3yaXxKAcDtWN_d0rSwUcNdhAjheb0vYIh" alt="4K Display" loading="lazy">
+              </div>
+              <span class="amz-mini-label">4K HDR Display</span>
+              <span class="amz-mini-price">$379.99</span>
+            </div>
+            <div class="amz-mini-item" onclick="openQuickView(4)">
+              <div class="amz-mini-thumb">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDbRwSBcQF_ZagKY_W5PYpLyPP8ljOlsSeLTfH8n1utPv5Q_6vugm_okallh5Nj9exlxx4285GjkIhpis0ydgNTliP9UzY3eGcbP8KeBYSX83tjwKahKzbDa6Zy9tXCcehb0Ld1qDDUQs8z9WSVCUUD_g5xM2lkns1kUgWBjY8KkObw9BFPkeJ0X-lp_LrtC3hZUxLDPOgt7WW558yWxmO5lGMrv7bsE8wLNacNeP9bs2ScArztWCV" alt="Smart Light Strip" loading="lazy">
+              </div>
+              <span class="amz-mini-label">Smart Light Strip</span>
+              <span class="amz-mini-price">$34.99</span>
+            </div>
+          </div>
+          <a href="#catalogSection" class="amz-card-action">See your browsing history &gt;</a>
+        </article>
+
+        <!-- Card 2: Top Deals in Tech -->
+        <article class="amz-card amz-quadrant-card">
+          <div class="amz-card-header">
+            <div>
+              <h2 class="amz-card-title">Top Tech Deals</h2>
+              <p class="amz-card-subtitle">Hand-picked flagship hardware</p>
+            </div>
+            <span class="amz-badge-red">-35% OFF</span>
+          </div>
+          <div class="amz-featured-deal" onclick="openQuickView(5)">
+            <div class="amz-featured-thumb">
+              <span class="amz-tag-prime">prime</span>
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHRIyjH_Fi2CL0URvMMbD6rCLQKIzwlMUazq5qluw_90rFvCEgQsm2n1SHEcBcEuk_h8J_IIsJQgc1BCJawVVNNcddwrVNt9ohUlBYSJNpQ1fGKLv9CzKLuFqjriKJ7cVGmikSl0f_qgG_3FyP1_iqAj83SASK1XPkzquu0Mn3u6C8vkqfKiUgUFGz-sRf5DZJpD5YupRXZ1nRIVzV5j8zGB1Ju6lYqcT-g1V-zX-aR74kKlnc8JwZ" alt="Pro Wireless Earbuds" loading="lazy">
+            </div>
+            <div class="amz-deal-meta">
+              <div class="amz-price-row">
+                <span class="amz-price-hero text-red">$169.99</span>
+                <span class="amz-price-msrp">$259.99</span>
+              </div>
+              <h3 class="amz-deal-name">Pro Noise-Canceling Wireless Earbuds with Spatial Audio</h3>
+              <div class="amz-rating-row">
+                <div class="amz-stars text-amber">★★★★★</div>
+                <span class="amz-rating-score font-bold">4.9</span>
+                <span class="amz-rating-count">(18,920)</span>
+              </div>
+            </div>
+          </div>
+          <button class="amz-btn amz-btn-sm amz-btn-add mt-auto" onclick="addToCart(5, event)">
+            <span class="material-symbols-outlined font-sm">add_shopping_cart</span>
+            <span>Add to Cart</span>
+          </button>
+        </article>
+
+        <!-- Card 3: Refresh Your Space (2x2 Grid) -->
+        <article class="amz-card amz-quadrant-card">
+          <div class="amz-card-header">
+            <div>
+              <h2 class="amz-card-title">Refresh your space</h2>
+              <p class="amz-card-subtitle">Aesthetic home &amp; culinary curation</p>
+            </div>
+          </div>
+          <div class="amz-mini-grid">
+            <div class="amz-mini-item" onclick="openQuickView(6)">
+              <div class="amz-mini-thumb">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuArPvYGeBH7vuY2CkqRqJ_nwwV_dtaLwu4XMyZkAwqFOz0dLnbJpDhbq68C4xijStCY-dByjA7WJ_smyyeSPH-970uFy6H066g3l767Xn7R6jFzI3ILmDzbUyOFkU1P5pcCdJcIU6wbTTNGignTteza7r_fgTvoa7gm5bKBQh2xYQ9ADi29IY-d0HCZ5Ck51vB-GrOXjgRpwvdU0lSgcmJsnwLWFdUJ7coZ8OQlRXGBrQWXzJ_IpWEZ" alt="Gooseneck Kettle" loading="lazy">
+              </div>
+              <span class="amz-mini-label">Precision Kettle</span>
+              <span class="amz-mini-price">$59.99</span>
+            </div>
+            <div class="amz-mini-item" onclick="openQuickView(7)">
+              <div class="amz-mini-thumb">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_Ei2DOYdKWoW4J9sBijGxzNoO8OehQbxtR3JEgKF2JAasgCpr9rXhg9TeyI86_mb0Z1z4sifA1GjVDgOabstun9QV0J0JTrbj32Za4RRsSN5gPfN7PiJa735qf-IUl464f4_a4hVdSjX5qjGR9ytYfkbtPef-THZjBO2YiWIj7Ywv9HQuDRau_Y6SA92pphwWQEEQF3etFrCEZBcMX5xm86Ewy6_9AeqwIbX8N6V-Ug4wv8JZ-uyF" alt="Ceramic Vase" loading="lazy">
+              </div>
+              <span class="amz-mini-label">Sculptural Ceramics</span>
+              <span class="amz-mini-price">$28.00</span>
+            </div>
+            <div class="amz-mini-item" onclick="openQuickView(8)">
+              <div class="amz-mini-thumb">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPFialIT5Q2_EhFq2_gQoZAZoK8q-fwYkcCAay_u2vlK7kMTIFYk34ssPKI3qv1nkqCc2sx1rqNAr8q1ZQ2DaG_GRxTLHOguaPDj6mU8podcYmLCNEpqOqs19jZDdK_nhx8jrHvXsaaNWc4C34EL1RsAZjd5ft_YzinfyAdKIrmEO0mh8QRZ4hfs1HUm2xbGFqSi1y0yZzdmcsRkP2Z7jvl9N6lBU6urc53246TKvKdr02vbJj5KLj" alt="Linen Throw" loading="lazy">
+              </div>
+              <span class="amz-mini-label">Organic Linen Throw</span>
+              <span class="amz-mini-price">$42.50</span>
+            </div>
+            <div class="amz-mini-item" onclick="openQuickView(9)">
+              <div class="amz-mini-thumb">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVZ62rfRFOd49Dh9ah6GKQm12d-JQiqWF_F4YRG62oqCl9tOkSQlcpWwpPMez2ofMAdk_tTGHgneXDgJKd1Jx_XA_SFjM7SuQhKv1qfSAR9kDgLl4P9UkmYcTBkV5Ouq-lIvkpCoUGIQYtLhj4__FHGwE4ULvabZG86JlmrgTzFEog_fQguI6VRcKG-KyuJmr06Xf9MuR2WVZv-i-4P8RTLAAnm5kFPilRdkduI2WmF2D4mIiK6u0H" alt="Stone Diffuser" loading="lazy">
+              </div>
+              <span class="amz-mini-label">Stone Diffuser</span>
+              <span class="amz-mini-price">$38.99</span>
+            </div>
+          </div>
+          <a href="#catalogSection" class="amz-card-action">Discover home designs &gt;</a>
+        </article>
+
+        <!-- Card 4: Prime Member Exclusives -->
+        <article class="amz-card amz-prime-perks-card">
+          <div class="amz-prime-ambient-glow"></div>
+          <div class="amz-prime-card-top">
+            <div class="amz-prime-logo-badge">
+              <span class="amz-prime-hero-tag">prime</span>
+              <span class="material-symbols-outlined text-amber">verified</span>
+            </div>
+            <h2 class="amz-prime-title">Alex, unlock member-only lightning discounts</h2>
+            <p class="amz-prime-copy">
+              Free next-day delivery on over 20M products, exclusive video premieres, and ad-free music included.
+            </p>
+            <div class="amz-prime-benefits-list">
+              <div class="amz-benefit-row">
+                <span class="material-symbols-outlined text-amber">local_shipping</span>
+                <div>
+                  <strong>Priority Morning Dispatch</strong>
+                  <p>Order by 11 PM, get it by 8 AM</p>
+                </div>
+              </div>
+              <div class="amz-benefit-row">
+                <span class="material-symbols-outlined text-blue">smart_display</span>
+                <div>
+                  <strong>Prime Video Originals</strong>
+                  <p>Stream award-winning hits in 4K HDR</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="amz-btn amz-btn-amber w-full" id="managePrimeBtn">
+            <span>Manage Prime Account</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================= LIGHTNING DEALS HORIZONTAL RAIL ================= -->
+    <section class="amz-section amz-lightning-section" id="lightningDealsSection">
+      <div class="amz-rail-container">
+        <!-- Rail Header -->
+        <div class="amz-rail-header">
+          <div class="amz-rail-title-group">
+            <div class="amz-red-accent-bar"></div>
+            <div>
+              <div class="amz-deal-title-line">
+                <h2 class="amz-section-title">Lightning Deals</h2>
+                <span class="amz-pulsing-badge">Fast Expiring</span>
+              </div>
+              <p class="amz-section-subtitle">Top-rated limited inventory discounts, refreshed in real-time</p>
+            </div>
+          </div>
+          
+          <div class="amz-rail-controls">
+            <a href="#catalogSection" class="amz-rail-all-link">See all deals</a>
+            <div class="amz-carousel-arrows">
+              <button class="amz-arrow-circle" id="railScrollLeft" aria-label="Scroll deals backward">
+                <span class="material-symbols-outlined">chevron_left</span>
+              </button>
+              <button class="amz-arrow-circle" id="railScrollRight" aria-label="Scroll deals forward">
+                <span class="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Horizontal Scrollable Deal Cards Track -->
+        <div class="amz-deal-rail" id="lightningDealRail">
+          <!-- Deal 1 -->
+          <div class="amz-rail-card" data-deal-id="10">
+            <div class="amz-rail-thumb-wrap">
+              <span class="amz-rail-discount">38% OFF</span>
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYysb2DaXIE6Y-MAGp8AqBl03DoVVBj2r8XGVotw8r67rgNpkBqkKPhpJk-qFlGFSlXH1xvrD0MG1qF6YQizxqqKGGBk0dyabHNiLvpVG-LAE2d-qWDGnFTgcIgHoGgjno4CIJ8nJK1-1NYY3ngRR8YlEI6ks3iKKmSfM0xLz2AJZTP3SGIppowmwz5szaUQzHOpTSqmgYuhdci90RfBwPUmIkASHcNGYUs0xOB0KpbtXqH_UKza2m" alt="Mirrorless 4K Camera" loading="lazy">
+            </div>
+            <div class="amz-rail-meta">
+              <div class="amz-price-row">
+                <span class="amz-price-hero font-bold">$499.00</span>
+                <span class="amz-price-msrp">$799.00</span>
+              </div>
+              <h3 class="amz-rail-prod-title">Pro Cinema Mirrorless 4K60p Camera Body with 5-Axis IBIS</h3>
+              <div class="amz-rating-row">
+                <div class="amz-stars text-amber">★★★★★</div>
+                <span class="font-bold">4.8</span>
+                <span class="amz-rating-count">(12,410)</span>
+              </div>
+              <!-- Claim Progress Bar -->
+              <div class="amz-claim-meter">
+                <div class="amz-meter-bar"><div class="amz-meter-fill bg-red" style="width: 68%;"></div></div>
+                <div class="amz-meter-text">
+                  <span class="text-red font-bold">68% claimed</span>
+                  <span class="amz-deal-countdown" data-hours="3" data-minutes="12">03h 12m left</span>
+                </div>
+              </div>
+            </div>
+            <button class="amz-btn amz-btn-add w-full" onclick="addToCart(10, event)">
+              <span class="material-symbols-outlined font-sm">add_shopping_cart</span>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+          <!-- Deal 2 -->
+          <div class="amz-rail-card" data-deal-id="11">
+            <div class="amz-rail-thumb-wrap">
+              <span class="amz-rail-discount">42% OFF</span>
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxk5ItMN_k2dhIe8Sl4bown94ovJ3zgrQ3mL_pWIt85eJQytWQY96HeHZTRllxKnBs3Uuuj4pXav__IXY8qj9k1tFUFiaKu0GijjXxPRQD-hOS9uC9aEih0H76aFZh3AF2B6kwzFmunS7laBkSiI-Ho19NT6_HmxX7k3jJpVLrhdW6k3AfIAR7y50bLI1NdEi7PdRcnmYibQ5yhNzcz5NDRoLndils8u83HZJyQwD2sJiLlAibXRmC" alt="Rugged Smartwatch" loading="lazy">
+            </div>
+            <div class="amz-rail-meta">
+              <div class="amz-price-row">
+                <span class="amz-price-hero font-bold">$179.99</span>
+                <span class="amz-price-msrp">$309.99</span>
+              </div>
+              <h3 class="amz-rail-prod-title">Rugged GPS Smartwatch with Multisport Tracking &amp; 14-Day Battery</h3>
+              <div class="amz-rating-row">
+                <div class="amz-stars text-amber">★★★★★</div>
+                <span class="font-bold">4.9</span>
+                <span class="amz-rating-count">(8,450)</span>
+              </div>
+              <div class="amz-claim-meter">
+                <div class="amz-meter-bar"><div class="amz-meter-fill bg-red" style="width: 84%;"></div></div>
+                <div class="amz-meter-text">
+                  <span class="text-red font-bold">84% claimed</span>
+                  <span class="amz-deal-countdown" data-hours="1" data-minutes="45">01h 45m left</span>
+                </div>
+              </div>
+            </div>
+            <button class="amz-btn amz-btn-add w-full" onclick="addToCart(11, event)">
+              <span class="material-symbols-outlined font-sm">add_shopping_cart</span>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+          <!-- Deal 3 -->
+          <div class="amz-rail-card" data-deal-id="12">
+            <div class="amz-rail-thumb-wrap">
+              <span class="amz-rail-discount">30% OFF</span>
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcvMBNWEeF_xq9cE5IVstmWjJNCOBAVE0XjaH2Z2cyaISQLMyA04rwobD5tYG4XVeaePCwjh12uUbd0CiUlGxl1fRZQm2MrFmALmXMhST-fejYx7Tv3VNxn97yfHzsYh7sxp94pepTOAzYZcbiEx-h7K4f3BRXroQl-R4GPFhhj_YoBuY9ygZMGNhBJSRdw9i7-04zDVSUh35ylueP39IYyDNigKinuKaiHkiIE-jUtdXRBk0ERwTu" alt="Espresso Maker" loading="lazy">
+            </div>
+            <div class="amz-rail-meta">
+              <div class="amz-price-row">
+                <span class="amz-price-hero font-bold">$299.95</span>
+                <span class="amz-price-msrp">$429.00</span>
+              </div>
+              <h3 class="amz-rail-prod-title">Compact Barista Espresso Maker with Integrated Burr Grinder</h3>
+              <div class="amz-rating-row">
+                <div class="amz-stars text-amber">★★★★☆</div>
+                <span class="font-bold">4.7</span>
+                <span class="amz-rating-count">(6,218)</span>
+              </div>
+              <div class="amz-claim-meter">
+                <div class="amz-meter-bar"><div class="amz-meter-fill bg-red" style="width: 52%;"></div></div>
+                <div class="amz-meter-text">
+                  <span class="text-red font-bold">52% claimed</span>
+                  <span class="amz-deal-countdown" data-hours="5" data-minutes="20">05h 20m left</span>
+                </div>
+              </div>
+            </div>
+            <button class="amz-btn amz-btn-add w-full" onclick="addToCart(12, event)">
+              <span class="material-symbols-outlined font-sm">add_shopping_cart</span>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+          <!-- Deal 4 -->
+          <div class="amz-rail-card" data-deal-id="13">
+            <div class="amz-rail-thumb-wrap">
+              <span class="amz-rail-discount">50% OFF</span>
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPzmhAMpzvEqCv4bgwjR9r7Was8fsSCDHwmU_cBWrInJXBB5E1MDHRgpPB1tBRPU1lEeLH2LCYGYJsGKOCtgCnIMpzuiBPkz7YK01PWMqLWJZQHV4qLiK9HhXARZ73fI2dYGKEczXnwsy55to5FdgSwwLP_8g9gCZx0lswmReLOp8NELiBbdu17OGxGhq3ycs7Oei3qci7IH0WX3ZbRp2uLG1EG_G_tQ4OeK45wE30HsG3GIuIfQVi" alt="Bluetooth Speaker" loading="lazy">
+            </div>
+            <div class="amz-rail-meta">
+              <div class="amz-price-row">
+                <span class="amz-price-hero font-bold">$59.99</span>
+                <span class="amz-price-msrp">$119.99</span>
+              </div>
+              <h3 class="amz-rail-prod-title">Portable 360-Degree Spatial Bluetooth Speaker, IPX7 Waterproof</h3>
+              <div class="amz-rating-row">
+                <div class="amz-stars text-amber">★★★★★</div>
+                <span class="font-bold">4.8</span>
+                <span class="amz-rating-count">(34,812)</span>
+              </div>
+              <div class="amz-claim-meter">
+                <div class="amz-meter-bar"><div class="amz-meter-fill bg-red" style="width: 91%;"></div></div>
+                <div class="amz-meter-text">
+                  <span class="text-red font-bold">91% claimed</span>
+                  <span class="amz-deal-countdown" data-hours="0" data-minutes="48">00h 48m left</span>
+                </div>
+              </div>
+            </div>
+            <button class="amz-btn amz-btn-add w-full" onclick="addToCart(13, event)">
+              <span class="material-symbols-outlined font-sm">add_shopping_cart</span>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+          <!-- Deal 5 -->
+          <div class="amz-rail-card" data-deal-id="14">
+            <div class="amz-rail-thumb-wrap">
+              <span class="amz-rail-discount">25% OFF</span>
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKZPHVO_Bvde28QgSTlWaeiAxhmJIvbNgHouSBxFrP9Snxe-Zi212fgM03o6IRt2Y_fO873Hg01zzp5rLkpF1gKr3X2s13dwL-d3tmdZf5U_Bz_G1gclP4cpNYiDRdo42jZnjY6u8su8nGZel3Vc0xBEQZdJvuyT_viHLv2_atwgXFltM0SnM2Wgk7iS63VhNGsyP5gS9vGdiTGY5nzvdjManjyt35N-DG8_q1ujmqbOzm2eAbR4EA" alt="Gaming Mouse" loading="lazy">
+            </div>
+            <div class="amz-rail-meta">
+              <div class="amz-price-row">
+                <span class="amz-price-hero font-bold">$89.99</span>
+                <span class="amz-price-msrp">$119.99</span>
+              </div>
+              <h3 class="amz-rail-prod-title">Ultralight Wireless Esports Precision Gaming Mouse 26K Sensor</h3>
+              <div class="amz-rating-row">
+                <div class="amz-stars text-amber">★★★★★</div>
+                <span class="font-bold">4.9</span>
+                <span class="amz-rating-count">(5,120)</span>
+              </div>
+              <div class="amz-claim-meter">
+                <div class="amz-meter-bar"><div class="amz-meter-fill bg-red" style="width: 45%;"></div></div>
+                <div class="amz-meter-text">
+                  <span class="text-red font-bold">45% claimed</span>
+                  <span class="amz-deal-countdown" data-hours="7" data-minutes="15">07h 15m left</span>
+                </div>
+              </div>
+            </div>
+            <button class="amz-btn amz-btn-add w-full" onclick="addToCart(14, event)">
+              <span class="material-symbols-outlined font-sm">add_shopping_cart</span>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MAIN PRODUCT CATALOG & FILTER SECTION ================= -->
+    <section class="amz-section amz-catalog-section" id="catalogSection">
+      <div class="amz-section-wrapper">
+        
+        <!-- Filter Header Bar -->
+        <div class="amz-catalog-header">
+          <div>
+            <h2 class="amz-section-title" id="catalogHeading">Trending Products &amp; Recommendations</h2>
+            <p class="amz-section-subtitle">Based on your browsing history and top deals today</p>
+          </div>
+
+          <!-- Sort and Filter Controls -->
+          <div class="amz-filter-toolbar">
+            <!-- Category Filter Pills -->
+            <div class="amz-filter-pills" id="filterPills">
+              <button class="amz-pill active" data-filter="all">All Items</button>
+              <button class="amz-pill" data-filter="electronics">Electronics</button>
+              <button class="amz-pill" data-filter="audio">Audio</button>
+              <button class="amz-pill" data-filter="wearables">Smart Tech</button>
+              <button class="amz-pill" data-filter="home">Home &amp; Kitchen</button>
+              <button class="amz-pill" data-filter="books">Books</button>
+            </div>
+
+            <!-- Sort By Select -->
+            <div class="amz-sort-wrap">
+              <label for="catalogSortSelect" class="amz-sort-label">Sort by:</label>
+              <select id="catalogSortSelect" class="amz-sort-select">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Avg. Customer Review</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search Results Banner (Shown when active filter / search) -->
+        <div class="amz-search-active-banner" id="searchFeedbackBanner" style="display: none;">
+          <span>Showing results for "<strong id="searchFeedbackQuery"></strong>" (<span id="searchResultCount">0</span> found)</span>
+          <button class="amz-clear-filter-btn" id="clearActiveFilterBtn">Reset Filter</button>
+        </div>
+
+        <!-- Dynamic Product Grid -->
+        <div class="amz-product-grid" id="productGrid">
+          <!-- Populated dynamically via JavaScript with rich interactive cards -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= CURATOR'S SPOTLIGHT & BEST SELLERS IN BOOKS ================= -->
+    <section class="amz-section amz-curator-section">
+      <div class="amz-section-wrapper">
+        <div class="amz-curator-grid">
+          
+          <!-- Curator Spotlight Feature Box -->
+          <article class="amz-curator-banner">
+            <div class="amz-curator-glow"></div>
+            <div class="amz-curator-content">
+              <span class="amz-curator-tag">Curator's Spotlight</span>
+              <h3 class="amz-curator-headline">The Design of Intelligence &amp; Craft</h3>
+              <p class="amz-curator-desc">
+                Discover monthly top-tier architecture monographs, award-winning typography tomes, and philosophical deep dives on modern engineering.
+              </p>
+              <div class="amz-curator-media">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt43lzUYZsiDT-cDMQcOSPg-uUVGgzypRSa69qo-YTO8jzK_ztvzSQV-tiYW_IKZmBuy9JBxJTsaoTY4UELy1hDHFMhegLLq2P84bWBZqNaNz7HP-AJMPA_mjP1N03g19JraCr3i0SWMyNTv2vyBIDy7iuPNVNeeUOcc7glDy_zhp6Ap1FlOB6TI2xGlJDh5f2PQR7VLFOEMewyVwGEB6LTKOaJ3Ju1TDkFA6kQaoaQv2psgoMvbW9" alt="Design Books Collection" loading="lazy">
+              </div>
+            </div>
+            <div class="amz-curator-foot">
+              <div>
+                <span class="amz-vol-text">Curated Volume 14</span>
+                <strong class="amz-vol-count">28 Titles Included</strong>
+              </div>
+              <button class="amz-btn amz-btn-white" onclick="filterByCategory('books')">View Collection</button>
+            </div>
+          </article>
+
+          <!-- Best Sellers in Media & Books Grid -->
+          <div class="amz-bestsellers-box">
+            <div class="amz-bestseller-header">
+              <div>
+                <h3 class="amz-section-title">Best Sellers in Books &amp; Audio</h3>
+                <p class="amz-section-subtitle">Most gifted and read titles across all categories this week</p>
+              </div>
+              <button class="amz-link-btn" onclick="filterByCategory('books')">Explore full chart</button>
+            </div>
+
+            <div class="amz-books-grid">
+              <!-- Book 1 -->
+              <div class="amz-book-card" onclick="openQuickView(15)">
+                <div class="amz-book-thumb">
+                  <span class="amz-rank-pill">#1</span>
+                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Oe_svgSW-_Hxyb-HgFpQvks4nH2zdOL-IOtYKsTaH0wgG6yhtj2TkiqdJqqaXcZEkyw5fGScD2JIaQ9hfRumKpiunoHE5Q91zGfL3CCbOA-3Bhb5BxelULFXzJ9oyeURbYOUdqto2p96VWQSiOifU95Rp0wXj6JnX-IdA1AEAaOpaj4ymaott2WiuqCaswvi6mwTTarpOxSPGbvMLWqvjvhfV1vzJbVlHufi1A1Zd7_OXzsb32-X" alt="Principles of Artificial Horizons" loading="lazy">
+                </div>
+                <span class="amz-book-badge">Hardcover &amp; Kindle</span>
+                <h4 class="amz-book-title">Principles of Artificial Horizons</h4>
+                <p class="amz-book-author">Dr. Marcus Vance</p>
+                <div class="amz-price-row mt-1">
+                  <span class="amz-price-hero font-bold">$18.99</span>
+                  <span class="amz-price-msrp">$32.00</span>
+                </div>
+              </div>
+
+              <!-- Book 2 -->
+              <div class="amz-book-card" onclick="openQuickView(16)">
+                <div class="amz-book-thumb">
+                  <span class="amz-rank-pill">#2</span>
+                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Orctcs12RT_G5N1c9dbgvVT66vv6y8M1InmN_Ny1j5yycylCVzAsNfs50idcwSSn2BZAuXfNEJUzxfg7xbCDU-87xjPe_ztnpAS3o6r3gNsg9wwxfOLmq_0QfNeB6Wp-lR6trc_qJjYyB7UJw9ep39_n0p2d6O_6za3dzibCTCqiLtJQQzy7Pmi2w_Qw5tnrHitKx86HewMQ-ksZhndpwqY4ma0xVfHd3g3_3_LdGpwMiUQ4ckm-" alt="Form, Space &amp; Pure Modernism" loading="lazy">
+                </div>
+                <span class="amz-book-badge">Collector's Edition</span>
+                <h4 class="amz-book-title">Form, Space &amp; Pure Modernism</h4>
+                <p class="amz-book-author">Elena Rostova</p>
+                <div class="amz-price-row mt-1">
+                  <span class="amz-price-hero font-bold">$42.00</span>
+                  <span class="amz-price-msrp">$60.00</span>
+                </div>
+              </div>
+
+              <!-- Book 3 -->
+              <div class="amz-book-card" onclick="openQuickView(17)">
+                <div class="amz-book-thumb">
+                  <span class="amz-rank-pill">#3</span>
+                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTOnddXrU-FZ-JYcsuzFKYFdFBK7UQjHDJieWXqkIQffz1w-0L3vN7t4Whj41A26Xggv63MWl1Pbxnzdz5K0zGf6yk4oREOtLFRVycbmmbKM56WjhdGMP00WFs12E-pYsRwQ3SqqqmWPMSTCnJJqrNiCSjIDkkp6RxDIwB4WWtexACkr5wjDg8dYUVle3PrUY7WvOQJQQEDqZqVizAW4j2ZBsqWnTC1_S3zIG6w83Zni5PSIDrsc6T" alt="The Fermentation Laboratory" loading="lazy">
+                </div>
+                <span class="amz-book-badge">Culinary Essential</span>
+                <h4 class="amz-book-title">The Fermentation Laboratory</h4>
+                <p class="amz-book-author">Kenji Takahashi</p>
+                <div class="amz-price-row mt-1">
+                  <span class="amz-price-hero font-bold">$27.50</span>
+                  <span class="amz-price-msrp">$40.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audible Banner inside -->
+            <div class="amz-audible-strip">
+              <div class="amz-audible-info">
+                <span class="material-symbols-outlined text-blue amz-audible-icon">headphones</span>
+                <div>
+                  <strong>Audible Premium Plus Trial</strong>
+                  <p>Get 2 free audiobooks and 30 days unlimited listening with Prime</p>
+                </div>
+              </div>
+              <button class="amz-btn amz-btn-outline-dark" id="claimAudibleBtn">Claim 30-Day Free Trial</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="amz-footer">
+    <!-- Back to top button -->
+    <a href="#topHeader" class="amz-back-to-top" id="backToTopBtn">
+      <span>Back to top</span>
+    </a>
+
+    <!-- 4-Column Directory Links -->
+    <div class="amz-footer-links-grid">
+      <div class="amz-footer-col">
+        <h3>Get to Know Us</h3>
+        <ul>
+          <li><a href="#">Careers at Amazon</a></li>
+          <li><a href="#">Amazon News &amp; Blog</a></li>
+          <li><a href="#">About Amazon Culture</a></li>
+          <li><a href="#">Investor Relations</a></li>
+          <li><a href="#">Amazon Devices &amp; Echo</a></li>
+          <li><a href="#">Amazon Science &amp; AI</a></li>
+        </ul>
+      </div>
+
+      <div class="amz-footer-col">
+        <h3>Make Money with Us</h3>
+        <ul>
+          <li><a href="#">Sell products on Amazon</a></li>
+          <li><a href="#">Sell on Amazon Business</a></li>
+          <li><a href="#">Sell apps on Amazon Appstore</a></li>
+          <li><a href="#">Become an Affiliate</a></li>
+          <li><a href="#">Advertise Your Products</a></li>
+          <li><a href="#">Self-Publish with Us (KDP)</a></li>
+        </ul>
+      </div>
+
+      <div class="amz-footer-col">
+        <h3>Amazon Payment Products</h3>
+        <ul>
+          <li><a href="#">Amazon Rewards Visa Card</a></li>
+          <li><a href="#">Shop with Points</a></li>
+          <li><a href="#">Reload Your Gift Card Balance</a></li>
+          <li><a href="#">Amazon Currency Converter</a></li>
+          <li><a href="#">Amazon Pay &amp; Subscriptions</a></li>
+        </ul>
+      </div>
+
+      <div class="amz-footer-col">
+        <h3>Let Us Help You</h3>
+        <ul>
+          <li><a href="#">Amazon and COVID-19</a></li>
+          <li><a href="#">Your Account</a></li>
+          <li><a href="#">Your Orders &amp; Invoices</a></li>
+          <li><a href="#">Shipping Rates &amp; Policies</a></li>
+          <li><a href="#">Returns &amp; Replacements</a></li>
+          <li><a href="#">Manage Your Content and Devices</a></li>
+          <li><a href="#">Help &amp; Customer Support</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Divider Bar: Logo & Regional Selector -->
+    <div class="amz-footer-locale-bar">
+      <div class="amz-footer-locale-inner">
+        <div class="amz-footer-logo">
+          <span class="amz-logo-text">amazon</span>
+          <svg class="amz-smile-svg-footer" viewBox="0 0 100 24" fill="none">
+            <path d="M4 14C24 23 76 25 96 6" stroke="#ff9900" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M88 4L97 6L94 15" stroke="#ff9900" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="amz-locale-toggles">
+          <button class="amz-locale-btn">
+            <span class="material-symbols-outlined font-sm">language</span>
+            <span>English</span>
+          </button>
+          <button class="amz-locale-btn">
+            <span>$ USD - U.S. Dollar</span>
+          </button>
+          <button class="amz-locale-btn">
+            <span class="amz-flag-sm">🇺🇸</span>
+            <span>United States</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Legal Line -->
+    <div class="amz-footer-legal">
+      <div class="amz-legal-links">
+        <a href="#">Conditions of Use</a>
+        <a href="#">Privacy Notice</a>
+        <a href="#">Consumer Health Data Privacy Disclosure</a>
+        <a href="#">Your Ads Privacy Choices</a>
+      </div>
+      <p class="amz-copyright">© 1996-2026, Amazon.com, Inc. or its affiliates. Built for demonstration.</p>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS & SLIDE-OUT OVERLAYS ================= -->
+
+  <!-- 1. SLIDE-OUT SIDE MENU ("ALL" HAMBURGER DRAWER) -->
+  <div class="amz-drawer-overlay" id="sideMenuOverlay">
+    <aside class="amz-side-drawer" id="sideDrawer">
+      <div class="amz-side-drawer-header">
+        <span class="material-symbols-outlined amz-avatar-icon">account_circle</span>
+        <span>Hello, Alex</span>
+        <button class="amz-drawer-close" id="closeSideMenuBtn" aria-label="Close Side Menu">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="amz-side-drawer-content">
+        <div class="amz-drawer-section">
+          <h3>Trending</h3>
+          <a href="#lightningDealsSection" class="amz-drawer-item">Best Sellers</a>
+          <a href="#lightningDealsSection" class="amz-drawer-item">New Releases</a>
+          <a href="#lightningDealsSection" class="amz-drawer-item">Movers &amp; Shakers</a>
+        </div>
+        <div class="amz-drawer-section">
+          <h3>Digital Content &amp; Devices</h3>
+          <a href="#prime" class="amz-drawer-item">Prime Video</a>
+          <a href="#prime" class="amz-drawer-item">Amazon Music Unlimited</a>
+          <a href="#prime" class="amz-drawer-item">Echo &amp; Alexa Smart Home</a>
+          <a href="#prime" class="amz-drawer-item">Fire Tablets &amp; Kindle e-Readers</a>
+        </div>
+        <div class="amz-drawer-section">
+          <h3>Shop by Department</h3>
+          <button class="amz-drawer-item" onclick="filterByCategory('electronics')">Electronics &amp; Gadgets</button>
+          <button class="amz-drawer-item" onclick="filterByCategory('audio')">Headphones &amp; Audio</button>
+          <button class="amz-drawer-item" onclick="filterByCategory('home')">Home, Kitchen &amp; Garden</button>
+          <button class="amz-drawer-item" onclick="filterByCategory('wearables')">Computers &amp; Wearables</button>
+          <button class="amz-drawer-item" onclick="filterByCategory('books')">Books, Kindle &amp; Audible</button>
+        </div>
+        <div class="amz-drawer-section">
+          <h3>Programs &amp; Features</h3>
+          <a href="#deals" class="amz-drawer-item">Today's Deals</a>
+          <a href="#giftcards" class="amz-drawer-item">Gift Cards &amp; Registry</a>
+          <a href="#amazonlive" class="amz-drawer-item">Amazon Live Video Shopping</a>
+        </div>
+        <div class="amz-drawer-section">
+          <h3>Help &amp; Settings</h3>
+          <a href="#account" class="amz-drawer-item">Your Account</a>
+          <a href="#help" class="amz-drawer-item">Customer Service</a>
+          <a href="#signout" class="amz-drawer-item text-red">Sign Out</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 2. SHOPPING CART SLIDE-OVER DRAWER -->
+  <div class="amz-drawer-overlay" id="cartOverlay">
+    <aside class="amz-cart-drawer" id="cartDrawer">
+      <div class="amz-cart-drawer-header">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-amber">shopping_cart</span>
+          <h2>Shopping Cart (<span id="cartDrawerTotalCount">0</span>)</h2>
+        </div>
+        <button class="amz-drawer-close" id="closeCartBtn" aria-label="Close Cart">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <!-- Free Shipping Tracker -->
+      <div class="amz-free-shipping-box">
+        <div class="amz-shipping-status" id="shippingStatusText">
+          <span class="material-symbols-outlined text-green font-fill">check_circle</span>
+          <span>Your order qualifies for <strong>FREE Prime Two-Day Shipping</strong>!</span>
+        </div>
+        <div class="amz-shipping-progress">
+          <div class="amz-shipping-progress-fill" id="shippingProgressFill" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items List Container -->
+      <div class="amz-cart-items-list" id="cartItemsList">
+        <!-- Dynamically rendered cart items -->
+      </div>
+
+      <!-- Cart Drawer Footer -->
+      <div class="amz-cart-drawer-footer">
+        <!-- Promo Coupon Input -->
+        <div class="amz-promo-row">
+          <input type="text" id="promoCodeInput" placeholder="Promo code (e.g. PRIME20)" aria-label="Enter promo code">
+          <button type="button" class="amz-btn amz-btn-sm amz-btn-outline" id="applyPromoBtn">Apply</button>
+        </div>
+        <div id="promoNotice" class="amz-promo-notice" style="display: none;"></div>
+
+        <!-- Subtotal calculation -->
+        <div class="amz-subtotal-breakdown">
+          <div class="amz-calc-row">
+            <span>Items Subtotal:</span>
+            <span id="cartSubtotalAmount">$0.00</span>
+          </div>
+          <div class="amz-calc-row" id="discountRow" style="display: none;">
+            <span class="text-green font-bold">Discount Applied:</span>
+            <span class="text-green font-bold" id="cartDiscountAmount">-$0.00</span>
+          </div>
+          <div class="amz-calc-row">
+            <span>Estimated Shipping:</span>
+            <span class="text-green font-bold">FREE</span>
+          </div>
+          <div class="amz-calc-row amz-calc-total">
+            <span>Subtotal:</span>
+            <strong class="amz-final-price" id="cartTotalAmount">$0.00</strong>
+          </div>
+        </div>
+
+        <button class="amz-btn amz-btn-amber amz-btn-checkout w-full" id="proceedToCheckoutBtn">
+          <span class="material-symbols-outlined font-sm">lock</span>
+          <span>Proceed to Checkout</span>
+        </button>
+
+        <p class="amz-checkout-guarantee">
+          <span class="material-symbols-outlined font-sm text-green">security</span>
+          <span>Safe &amp; Secure 256-Bit SSL Encrypted Checkout</span>
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 3. QUICK VIEW PRODUCT DETAIL MODAL -->
+  <div class="amz-modal-backdrop" id="quickViewModal">
+    <div class="amz-modal-card" id="quickViewContent">
+      <button class="amz-modal-close" id="closeQuickViewBtn" aria-label="Close Preview">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="amz-qv-body" id="qvContainer">
+        <!-- Dynamically populated from JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. LOCATION SELECTOR MODAL -->
+  <div class="amz-modal-backdrop" id="locationModal">
+    <div class="amz-modal-card amz-modal-sm">
+      <button class="amz-modal-close" id="closeLocationModalBtn" aria-label="Close Location Picker">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="amz-modal-header">
+        <h3 class="font-bold text-lg">Choose your delivery location</h3>
+        <p class="text-muted text-sm mt-1">Delivery options and speeds may vary based on your postal code.</p>
+      </div>
+      <div class="amz-modal-body">
+        <div class="amz-form-group">
+          <label for="addressSelect" class="amz-form-label">Saved Addresses for Alex</label>
+          <select id="addressSelect" class="amz-select-input">
+            <option value="Seattle, WA 98101">Alex - Seattle, WA 98101 (Default)</option>
+            <option value="New York, NY 10001">Alex - New York, NY 10001 (Work)</option>
+            <option value="San Francisco, CA 94105">Alex - San Francisco, CA 94105</option>
+            <option value="Austin, TX 78701">Alex - Austin, TX 78701</option>
+          </select>
+        </div>
+        <div class="amz-modal-divider"><span>or enter a US zip code</span></div>
+        <div class="amz-form-inline">
+          <input type="text" id="customZipInput" class="amz-text-input" placeholder="Enter ZIP code (e.g. 90210)" maxlength="5">
+          <button class="amz-btn amz-btn-outline" id="applyZipBtn">Apply</button>
+        </div>
+      </div>
+      <div class="amz-modal-footer">
+        <button class="amz-btn amz-btn-amber w-full" id="confirmLocationBtn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CHECKOUT MULTI-STEP MODAL -->
+  <div class="amz-modal-backdrop" id="checkoutModal">
+    <div class="amz-modal-card amz-checkout-modal">
+      <button class="amz-modal-close" id="closeCheckoutBtn" aria-label="Close Checkout">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      
+      <!-- Checkout Header -->
+      <div class="amz-checkout-nav">
+        <div class="amz-logo-mini">
+          <span class="amz-logo-text">amazon</span>
+          <span class="amz-checkout-tag">checkout</span>
+        </div>
+        <div class="amz-checkout-steps">
+          <div class="amz-step active" id="step1Indicator">1. Shipping</div>
+          <div class="amz-step-line"></div>
+          <div class="amz-step" id="step2Indicator">2. Payment</div>
+          <div class="amz-step-line"></div>
+          <div class="amz-step" id="step3Indicator">3. Review &amp; Place</div>
+        </div>
+      </div>
+
+      <!-- Checkout Body Steps -->
+      <div class="amz-checkout-body">
+        
+        <!-- STEP 1: Shipping Address -->
+        <div class="amz-checkout-step-pane active" id="checkoutStep1">
+          <h3 class="amz-step-heading">1. Select a delivery address</h3>
+          <div class="amz-address-options">
+            <label class="amz-radio-card active">
+              <input type="radio" name="checkoutAddress" value="seattle" checked>
+              <div class="amz-radio-content">
+                <strong>Alex Vance</strong>
+                <p>1200 6th Ave, Apt 14B</p>
+                <p>Seattle, WA 98101-1122</p>
+                <span class="amz-default-pill">Default Address</span>
+              </div>
+            </label>
+            <label class="amz-radio-card">
+              <input type="radio" name="checkoutAddress" value="ny">
+              <div class="amz-radio-content">
+                <strong>Alex Vance (Work)</strong>
+                <p>350 5th Avenue, Suite 2200</p>
+                <p>New York, NY 10118-0110</p>
+              </div>
+            </label>
+          </div>
+          
+          <div class="amz-delivery-speed-box">
+            <h4 class="font-bold mb-2">Choose delivery speed:</h4>
+            <label class="amz-speed-option">
+              <input type="radio" name="deliverySpeed" value="prime-free" checked>
+              <div>
+                <strong>FREE Prime Tomorrow Morning Delivery (by 8 AM)</strong>
+                <p class="text-sm text-muted">Exclusively with your Prime Membership</p>
+              </div>
+            </label>
+            <label class="amz-speed-option">
+              <input type="radio" name="deliverySpeed" value="prime-standard">
+              <div>
+                <strong>FREE Two-Day Shipping</strong>
+                <p class="text-sm text-muted">Get a $1.50 digital reward by choosing standard</p>
+              </div>
+            </label>
+          </div>
+
+          <div class="amz-step-actions">
+            <button class="amz-btn amz-btn-amber" id="step1NextBtn">Use this address</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Payment Method -->
+        <div class="amz-checkout-step-pane" id="checkoutStep2">
+          <h3 class="amz-step-heading">2. Select a payment method</h3>
+          <div class="amz-payment-options">
+            <label class="amz-radio-card active">
+              <input type="radio" name="checkoutPayment" value="visa" checked>
+              <div class="amz-radio-content">
+                <div class="flex items-center gap-2">
+                  <span class="amz-cc-chip">VISA</span>
+                  <strong>Amazon Prime Visa Card ending in 4242</strong>
+                </div>
+                <p class="text-sm text-muted">Alex Vance | Exp: 08/29</p>
+                <span class="amz-badge-green">Earn 5% Back with Prime</span>
+              </div>
+            </label>
+            <label class="amz-radio-card">
+              <input type="radio" name="checkoutPayment" value="amazon-pay">
+              <div class="amz-radio-content">
+                <strong>Amazon Pay Balance</strong>
+                <p class="text-sm text-muted">Available balance: $148.50</p>
+              </div>
+            </label>
+            <label class="amz-radio-card">
+              <input type="radio" name="checkoutPayment" value="cod">
+              <div class="amz-radio-content">
+                <strong>Cash on Delivery (Pay at Doorstep)</strong>
+                <p class="text-sm text-muted">Electronic payment via QR or Cash upon physical delivery</p>
+              </div>
+            </label>
+          </div>
+
+          <div class="amz-step-actions">
+            <button class="amz-btn amz-btn-outline" id="step2BackBtn">Back</button>
+            <button class="amz-btn amz-btn-amber" id="step2NextBtn">Continue to Review</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Review & Place Order -->
+        <div class="amz-checkout-step-pane" id="checkoutStep3">
+          <h3 class="amz-step-heading">3. Review order and place</h3>
+          <div class="amz-review-grid">
+            <div class="amz-review-summary-box">
+              <h4>Shipping to:</h4>
+              <p id="reviewShippingTo">Alex Vance, 1200 6th Ave, Apt 14B, Seattle, WA 98101</p>
+              <h4 class="mt-3">Payment:</h4>
+              <p id="reviewPaymentMethod">Amazon Prime Visa Card ending in 4242</p>
+              <h4 class="mt-3">Estimated Delivery:</h4>
+              <p class="text-green font-bold" id="reviewDeliveryDate">Tomorrow by 8:00 AM</p>
+            </div>
+            <div class="amz-review-pricing-box">
+              <h4>Order Summary</h4>
+              <div class="amz-calc-row"><span>Items:</span><span id="reviewItemsTotal">$0.00</span></div>
+              <div class="amz-calc-row"><span>Shipping:</span><span class="text-green font-bold">FREE</span></div>
+              <div class="amz-calc-row" id="reviewDiscountRow" style="display: none;">
+                <span class="text-green font-bold">Promotion:</span><span class="text-green font-bold" id="reviewDiscountAmount">-$0.00</span>
+              </div>
+              <div class="amz-calc-row"><span>Estimated Tax:</span><span id="reviewTaxAmount">$0.00</span></div>
+              <hr class="amz-dropdown-divider">
+              <div class="amz-calc-row amz-calc-total">
+                <span class="font-bold text-lg">Order Total:</span>
+                <strong class="text-red text-xl" id="reviewFinalTotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="amz-step-actions">
+            <button class="amz-btn amz-btn-outline" id="step3BackBtn">Back</button>
+            <button class="amz-btn amz-btn-amber amz-btn-lg" id="placeOrderFinalBtn">
+              <span class="material-symbols-outlined">verified</span>
+              <span>Place your order</span>
+            </button>
+          </div>
+          <p class="text-xs text-muted mt-2 text-center">
+            By placing your order, you agree to Amazon's <a href="#" class="underline">Privacy Notice</a> and <a href="#" class="underline">Conditions of Use</a>.
+          </p>
+        </div>
+
+        <!-- STEP 4: ORDER SUCCESS SCREEN -->
+        <div class="amz-checkout-step-pane" id="checkoutSuccess">
+          <div class="amz-success-card">
+            <div class="amz-success-icon-wrap">
+              <span class="material-symbols-outlined text-green amz-success-check">check_circle</span>
+            </div>
+            <h2 class="amz-success-title">Order Placed, Thank You!</h2>
+            <p class="amz-success-subtitle">Confirmation and tracking updates have been sent to <strong>alex.vance@amazon.com</strong></p>
+            
+            <div class="amz-order-receipt-box">
+              <div class="amz-receipt-row">
+                <span>Order Number:</span>
+                <strong class="text-blue" id="receiptOrderId">114-8392014-9920138</strong>
+              </div>
+              <div class="amz-receipt-row">
+                <span>Estimated Arrival:</span>
+                <strong class="text-green" id="receiptDeliveryDate">Tomorrow by 8:00 AM</strong>
+              </div>
+              <div class="amz-receipt-row">
+                <span>Items Ordered:</span>
+                <strong id="receiptItemCount">0 items</strong>
+              </div>
+              <div class="amz-receipt-row">
+                <span>Total Charged:</span>
+                <strong class="text-lg" id="receiptTotalAmount">$0.00</strong>
+              </div>
+            </div>
+
+            <div class="amz-success-actions">
+              <button class="amz-btn amz-btn-amber" id="continueShoppingSuccessBtn">Continue Shopping</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. TOAST NOTIFICATION -->
+  <div class="amz-toast" id="cartToast">
+    <div class="amz-toast-content">
+      <span class="material-symbols-outlined text-green amz-toast-icon">check_circle</span>
+      <img id="toastItemThumb" class="amz-toast-thumb" src="" alt="Added item">
+      <div class="amz-toast-text">
+        <strong class="amz-toast-title">Added to Cart</strong>
+        <p class="amz-toast-item-name" id="toastItemName"></p>
+      </div>
+    </div>
+    <div class="amz-toast-actions">
+      <button class="amz-btn amz-btn-sm amz-btn-amber" id="toastViewCartBtn">View Cart</button>
+      <button class="amz-toast-close" id="toastCloseBtn" aria-label="Close notification">
+        <span class="material-symbols-outlined font-sm">close</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Custom JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
